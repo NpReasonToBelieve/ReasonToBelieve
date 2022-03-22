@@ -1,0 +1,13 @@
+// import bulma utilties and variables
+@import "./bulma/sass/utilities/initial-variables";
+@import "./bulma/sass/utilities/functions";
+
+// add reset styles and override for bulma variables
+@import "./reset.scss";
+@import "./vars.scss";
+
+// import rest of bulma and font awesome
+@import "./bulma/bulma.sass";
+@import "./font-awesome/scss/fontawesome.scss";
+@import "./font-awesome//scss/brands.scss";
+@import "./font-awesome//scss/solid.scss";
