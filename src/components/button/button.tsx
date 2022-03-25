@@ -1,11 +1,13 @@
-import React from "react";
+import React, { ReactNode } from "react";
+import clsx from "clsx";
+
 import "./button.css";
 
 interface ButtonProps {
 	/**
 	 * Is this the principal call to action on the page?
 	 */
-	primary?: boolean;
+	buttonType?: string;
 	/**
 	 * What background color to use
 	 */
@@ -17,7 +19,7 @@ interface ButtonProps {
 	/**
 	 * Button contents
 	 */
-	label: string;
+	children: ReactNode;
 	/**
 	 * Optional click handler
 	 */
@@ -25,21 +27,22 @@ interface ButtonProps {
 }
 
 const Button = ({
-	primary = false,
+	buttonType = "primary",
 	size = "medium",
 	backgroundColor,
-	label,
+	children,
+	type,
 	...props
-}: ButtonProps) => {
-	const mode = primary ? "is-primary" : "is-dark";
+}: ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>) => {
+	const classes = clsx("button", `is-${buttonType}`, `button--${size}`);
 	return (
 		<button
-			type="button"
-			className={["button", `button--${size}`, mode].join(" ")}
+			type={type}
+			className={classes}
 			style={{ backgroundColor }}
 			{...props}
 		>
-			{label}
+			{children}
 		</button>
 	);
 };
