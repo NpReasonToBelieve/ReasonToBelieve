@@ -6,8 +6,25 @@
 @import "./reset.scss";
 @import "./vars.scss";
 
+// Global styles overrides
+.select select:focus,
+.textarea:focus,
+.input:focus,
+.select select.is-focused,
+.is-focused.textarea,
+.is-focused.input,
+.select select:active,
+.textarea:active,
+.input:active,
+.select select.is-active,
+.is-active.textarea,
+.is-active.input {
+    box-shadow: 0 0 0 0.21em rgb(29, 155, 209, 30%) !important;
+}
+
 // import rest of bulma and font awesome
 @import "./bulma/bulma.sass";
 @import "./font-awesome/scss/fontawesome.scss";
 @import "./font-awesome//scss/brands.scss";
 @import "./font-awesome//scss/solid.scss";
+@import "./font-awesome/css/all.css";

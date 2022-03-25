@@ -1,22 +1,17 @@
 import React from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 
-import { Card } from "@components/card/card";
-import { CardHeader } from "@components/card/card-header";
-import { CardContent } from "@components/card/card-content";
-import { CardFooter } from "@components/card/card-footer";
-import { SignupForm } from "@components/form/sign-up";
+import { Signup } from "./signup";
+import { Modal } from "@components/modal/modal";
 
 const Home = () => {
 	return (
 		<section className="section">
 			<div className="container">
-				<Card>
-					<CardHeader title="Sign Up" />
-					<CardContent>
-						<SignupForm />
-					</CardContent>
-				</Card>
+				<h1>Welcome to our landing page</h1>
+				<Modal id="signup">
+					<Signup />
+				</Modal>
 			</div>
 		</section>
 	);
