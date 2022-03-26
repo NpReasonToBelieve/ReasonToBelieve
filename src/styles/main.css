@@ -339,6 +339,26 @@ template {
   display: none;
 }
 
+.container-spinner {
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+  margin: 40px auto;
+}
+
+#spinner {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid #fff;
+  border-top: 1px solid #1ea7fd;
+  border-radius: 50%;
+  position: absolute;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+}
+
 .select select:focus,
 .textarea:focus,
 .input:focus,
