@@ -5,6 +5,7 @@
 // add reset styles and override for bulma variables
 @import "./reset.scss";
 @import "./vars.scss";
+@import "./components.scss";
 
 // Global styles overrides
 .select select:focus,
@@ -21,6 +22,7 @@
 .is-active.input {
     box-shadow: 0 0 0 0.21em rgb(29, 155, 209, 30%) !important;
 }
+
 
 // import rest of bulma and font awesome
 @import "./bulma/bulma.sass";
