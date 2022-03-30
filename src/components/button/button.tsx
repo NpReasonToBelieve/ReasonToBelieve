@@ -34,7 +34,7 @@ const Button = ({
 	type,
 	...props
 }: ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>) => {
-	const classes = clsx("button", `is-${buttonType}`, `button--${size}`);
+	const classes = clsx("button", `is-${buttonType}`, `is-${size}`);
 	return (
 		<button
 			type={type}

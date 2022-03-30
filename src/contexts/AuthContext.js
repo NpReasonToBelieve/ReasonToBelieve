@@ -4,11 +4,13 @@ import {
 	getAuth,
 	onAuthStateChanged,
 	signInWithEmailAndPassword,
+	signOut,
 } from "firebase/auth";
 
-import { app } from "../firebase";
+import { app, addAdminRole } from "@firebase-file";
 
-const auth = getAuth(app);
+export const auth = getAuth(app);
+export { addAdminRole };
 const userAuthContext = createContext();
 
 export function UserAuthContextProvider({ children }) {
@@ -22,9 +24,20 @@ export function UserAuthContextProvider({ children }) {
 		return signInWithEmailAndPassword(auth, email, password);
 	}
 
-	useEffect(() => {
-		const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-			setUser(currentUser);
+	function logout() {
+		return signOut(auth).then(() => {
+			setUser(undefined);
+		});
+	}
+
+	useEffect(async () => {
+		const unsubscribe = await onAuthStateChanged(auth, (currentUser) => {
+			if (!currentUser) return;
+
+			return currentUser.getIdTokenResult().then((idTokenResult) => {
+				currentUser.isAdmin = idTokenResult.claims.admin;
+				setUser(currentUser);
+			});
 		});
 
 		return () => {
@@ -37,6 +50,7 @@ export function UserAuthContextProvider({ children }) {
 			value={{
 				signin,
 				login,
+				logout,
 				user,
 			}}
 		>

@@ -36,6 +36,14 @@ module.exports = {
 			}
 		);
 
+		config.resolve.alias = {
+			...config.resolve.alias,
+			"@components": path.resolve(__dirname, "../src/components/"),
+			"@tools": path.resolve(__dirname, "../src/tools/"),
+			"@contexts": path.resolve(__dirname, "../src/contexts/"),
+			"@pages": path.resolve(__dirname, "../src/pages/"),
+		};
+
 		config.plugins.push(new MiniCssExtractPlugin({ filename: "[name].css" }));
 
 		// Return the altered config

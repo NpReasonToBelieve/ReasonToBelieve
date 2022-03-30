@@ -14,6 +14,9 @@
          "@components/*":[
             "./src/components/*"
          ],
+         "@firebase-file":[
+            "./src/firebase.js"
+         ],
       },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],

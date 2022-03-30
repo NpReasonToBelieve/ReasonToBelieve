@@ -1,7 +1,5 @@
 import React from "react";
 import { Navbar } from "@components/nav/nav";
-
-import "./main-header.css";
 import { Button } from "@components/button/button";
 
 const MainHeader = () => {
@@ -11,9 +9,11 @@ const MainHeader = () => {
 
 	const items = [
 		<a className="navbar-item">Home</a>,
-		<a className="navbar-item js-modal-trigger" data-target="signup">
-			Student Portal
+		<a className="navbar-item js-modal-trigger" data-target="login">
+			Portal
 		</a>,
+		<a className="navbar-item">Donate</a>,
+		<a className="navbar-item">About Us</a>,
 	];
 
 	const endItems = [<Button buttonType="dark">Donate Now</Button>];

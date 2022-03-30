@@ -25,29 +25,28 @@ const validationSchema = Yup.object({
 		.required("This field is required"),
 });
 
-const Signup = () => {
-	const { signin } = useUserAuth();
+const Login = () => {
+	const { login } = useUserAuth();
 
 	return (
 		<Card>
-			<CardHeader title="Sign Up" />
+			<CardHeader title="Log in" />
 			<CardContent>
 				<Form
 					initialValues={initialValues}
 					validationSchema={validationSchema}
 					onSubmit={async (values, { setSubmitting, setErrors }) => {
 						const { email, password } = values;
-						await signin(email, password)
+						await login(email, password)
 							.then((response: any) => {
-								return JSON.stringify(response);
+								return response;
 							})
 							.then((data: any) => {
-								closeModal("signup");
+								closeModal("login");
 							})
 							.catch((err: any) => {
 								setSubmitting(false);
-								const error = err.customData._tokenResponse.error.message;
-								setErrors({ email: error });
+								setErrors({ email: err.code });
 							});
 					}}
 				>
@@ -66,7 +65,7 @@ const Signup = () => {
 											leftIcon="fa-thin fa-envelope-open"
 											formik={formValues}
 										>
-											<input className="input" />
+											<input id="login-email" className="input" />
 										</Field>
 
 										<Field
@@ -77,7 +76,7 @@ const Signup = () => {
 											leftIcon="fa-thin fa-lock"
 											formik={formValues}
 										>
-											<input className="input" />
+											<input id="login-id" className="input" />
 										</Field>
 
 										<Button
@@ -95,12 +94,12 @@ const Signup = () => {
 			</CardContent>
 			<CardFooter>
 				<p className="card-footer-item">
-					Already have an account?{" "}
+					New student?{" "}
 					<a
 						className="has-text-info navbar-item js-modal-trigger"
-						data-target="login"
+						data-target="signup"
 					>
-						Log in
+						Sign up now!
 					</a>
 				</p>
 			</CardFooter>
@@ -108,4 +107,4 @@ const Signup = () => {
 	);
 };
 
-export { Signup };
+export { Login };

@@ -19,6 +19,7 @@ module.exports = {
 			"@tools": path.resolve(__dirname, "src/tools/"),
 			"@contexts": path.resolve(__dirname, "src/contexts/"),
 			"@pages": path.resolve(__dirname, "src/pages/"),
+			"@firebase-file": path.resolve(__dirname, "src/firebase.js"),
 		})
 	),
 };

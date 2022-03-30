@@ -1,6 +1,7 @@
 import React, { ReactElement, ReactNode } from "react";
-import { FormikProps } from "formik";
 import clsx from "clsx";
+
+import ID from "@tools/random-id";
 
 import { Label } from "./form-elements/label";
 import { Icon } from "../icon/icon";
@@ -54,7 +55,7 @@ const Field = ({
 		onBlur: formik.handleBlur,
 		value: values[`${name}`],
 		className: hasErrorClasses,
-		id: name,
+		id: `${name}-${ID()}`,
 		name: name,
 		type,
 	});
